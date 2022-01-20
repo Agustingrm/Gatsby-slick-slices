@@ -80,7 +80,11 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     display: inline-block;
   }
-
+  .tilt {
+    transform: rotate(-2deg);
+    position: relative;
+    display: inline-block;
+  }
 `;
 
 export default GlobalStyles;
