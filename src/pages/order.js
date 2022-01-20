@@ -40,8 +40,8 @@ export default function OrderPage({ data }) {
       <OrderStyles onSubmit={submitOrder}>
         <fieldset disabled={loading}>
           <legend>Your Info</legend>
-          <label htmlFor="name">
-            Name
+          <label htmlFor="name" className="dataInput">
+            <span>Name</span>
             <input
               type="text"
               name="name"
@@ -50,8 +50,8 @@ export default function OrderPage({ data }) {
               onChange={updateValue}
             />
           </label>
-          <label htmlFor="email">
-            Email
+          <label htmlFor="email" className="dataInput">
+            <span> Email</span>
             <input
               type="email"
               name="email"
@@ -80,10 +80,10 @@ export default function OrderPage({ data }) {
                 fluid={pizza.image.asset.fluid}
                 alt={pizza.name}
               />
-              <div>
+              <div className="pizzaName">
                 <h2>{pizza.name}</h2>
               </div>
-              <div>
+              <div className="buttonGrid">
                 {['S', 'M', 'L'].map((size) => (
                   <button
                     type="button"
@@ -95,7 +95,7 @@ export default function OrderPage({ data }) {
                       })
                     }
                   >
-                    {size}
+                    {size}&nbsp;
                     {formatMoney(calculatePizzaPrice(pizza.price, size))}
                   </button>
                 ))}

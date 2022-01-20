@@ -25,6 +25,12 @@ const PaginationStyles = styled.div`
       color: var(--grey);
     }
   }
+  @media (max-width: 800px) {
+    .word {
+      display: none;
+    }
+    font-size: 1.4rem;
+  }
 `;
 
 export default function Pagination({
@@ -42,19 +48,28 @@ export default function Pagination({
   const hasNextPage = nextPage <= totalPages;
   return (
     <PaginationStyles>
-      <Link aria-disabled={!hasPrevPage} to={`${base}/${prevPage}`}>
-        ← Prev
+      <Link
+        title="Previous Page"
+        aria-disabled={!hasPrevPage}
+        to={`${base}/${prevPage}`}
+      >
+        ← <span className="word">Prev</span>
       </Link>
       {Array.from({ length: totalPages }).map((_, i) => (
         <Link
           className={currentPage === 1 && i === 0 ? 'current' : ''}
           to={`${base}/${i > 0 ? i + 1 : ''}`}
+          key={`page${i}`}
         >
           {i + 1}
         </Link>
       ))}
-      <Link aria-disabled={!hasNextPage} to={`${base}/${nextPage}`}>
-        Next →
+      <Link
+        title="Next Page"
+        aria-disabled={!hasNextPage}
+        to={`${base}/${nextPage}`}
+      >
+        <span className="word">Next</span> →
       </Link>
     </PaginationStyles>
   );

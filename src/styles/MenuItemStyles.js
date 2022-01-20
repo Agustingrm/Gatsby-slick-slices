@@ -31,6 +31,27 @@ const MenuItemStyles = styled.div`
     box-shadow: none;
     line-height: 1rem;
   }
+  @media (max-width: 500px) {
+    button + button {
+      margin-left: 0;
+    }
+    .buttonGrid {
+      display: grid;
+      grid-template-rows: repeat(3, 2rem);
+      gap: 1rem;
+      align-items: center;
+    }
+    .gatsby-image-wrapper {
+      grid-row: 2 /3;
+      height: 100% auto;
+    }
+    .pizzaName {
+      grid-column: 1 / 3;
+    }
+    /* button {
+      margin: 0 0.5rem 1rem 40px;
+    } */
+  }
 `;
 
 export default MenuItemStyles;
